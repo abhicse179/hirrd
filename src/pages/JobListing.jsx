@@ -137,28 +137,24 @@ const JobListing = () => {
           Clear Filters
         </Button>
       </div>
-
       {loadingJobs && (
         <BarLoader className="mt-4" width={"100%"} color="#36d7b7" />
       )}
-
       {/* Job Cards */}
-      {loadingJobs === false && (
+      {loadingJobs === false && jobs?.length ? (
         <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {jobs?.length ? (
-            jobs.map((job) => {
-              return (
-                <JobCard
-                  key={job.id}
-                  job={job}
-                  savedInit={job?.saved?.length > 0}
-                />
-              );
-            })
-          ) : (
-            <div>No Jobs Found 😢</div>
-          )}
+          {jobs.map((job) => {
+            return (
+              <JobCard
+                key={job.id}
+                job={job}
+                savedInit={job?.saved?.length > 0}
+              />
+            );
+          })}
         </div>
+      ) : (
+        <div className="mt-6 text-center">No Jobs Found 😢</div>
       )}
     </div>
   );
