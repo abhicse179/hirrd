@@ -75,7 +75,8 @@
   }
 }
 
-.wmde-markdown ul {
+.wmde-markdown p,
+ul {
   list-style-type: disc;
   padding-left: 25px;
   color: white;
